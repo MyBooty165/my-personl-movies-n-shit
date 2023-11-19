@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Tam's Personal Movie Site</title>
+<meta charset="utf-8"/>
+         <style>
+        /* Default favicon for all screen sizes */
+        link[rel="icon"] {
+            display: none; /* Hide the default favicon */
+        }
+
+        /* Favicon for small screens */
+        @media (max-width: 767px) {
+            link[rel="icon"][type="image/x-icon"] {
+                display: inline-block;
+            }
+        }
+
+        /* Favicon for medium screens */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            link[rel="icon"][type="image/png"][sizes="32x32"] {
+                display: inline-block;
+            }
+        }
+
+        /* Favicon for large screens */
+        @media (min-width: 1024px) {
+            link[rel="icon"][type="image/png"][sizes="64x64"] {
+                display: inline-block;
+            }
+        }
+    </style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Tam's personal movie site!!" name="description"/>
+<meta content="games, unblocked games, bypasss" name="keywords"/>
+<meta content="CybriaTech" name="author"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+     <script src="/js/header.js"></script>
+     <script src="/js/popup.js" defer></script>
+<main>
+  <br>
+  <form id="search-container">
+    <div id="logo-title">
+      <h1>Tam's Personal Movie Site</h1>
+    </div>
+    <input id="search-input" placeholder="Search For A Movie Or Series...">
+  </form>
+<div id="gamesContainer">
+<div class="game">
+<a href="/series/rick-and-morty">
+<img alt="2048" src="/img/rnm.png"/>
+<p class="game-title">Rick & Morty</p>
+</a>
+</div>
+</div>
+</main>
+<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+        server: '1154632402942050394', // CybriaTech
+        channel: '1154632891310030878' // #guest-general
+    })
+</script>
+<script>
+var elem = document.querySelector('.grid');
+var msnry = new Masonry( elem, {
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/cybriagames.js">
+    </script>
+    <script>
+        // Get references to the input element and game containers
+        const searchInput = document.getElementById('search-input');
+        const gameContainers = document.querySelectorAll('.game');
+        const searchForm = document.getElementById('search-container');
+
+        // Add an input event listener to trigger the search
+        searchInput.addEventListener('input', performSearch);
+
+        // Add a form submit event listener to prevent form submission
+        searchForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
+
+        // Function to perform the search
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            // Iterate through game containers and check if their titles match the search term
+            gameContainers.forEach(container => {
+                const title = container.querySelector('.game-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    container.style.display = 'block'; // Show matching game container
+                } else {
+                    container.style.display = 'none'; // Hide non-matching game container
+                }
+            });
+        }
+    </script>
+</body>
+</html>
